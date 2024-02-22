@@ -3,7 +3,7 @@ import { Layout } from "../components/Layout"
 import { client } from "../lib/createClient";
 import { Link } from "react-router-dom";
 
-export const Home = () => {
+export const Posts = () => {
     const [categories, setCategories] = useState([]); // retorna um array
     const [posts, setPosts] = useState([]);
 
@@ -14,7 +14,6 @@ export const Home = () => {
         client
             .getEntries({
                 content_type: 'blogPage',
-                limit: 2,
                 order: "-sys.createdAt"
             })
             .then(function (entries) {
@@ -51,10 +50,6 @@ export const Home = () => {
                                 </div>
                             </div>
                         ))}
-                        
-                        <Link to={"/posts"} className="card-link btn btn-primary">
-                            Ver todos os posts
-                        </Link>
                     </main>
                 
                     <aside className="col-md-4">

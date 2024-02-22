@@ -17,11 +17,11 @@ export const Post = () => {
     useEffect(() => {
         client
             .getEntries({
-                "fields.postSlug": slug,
-                content_type: 'blogPostAula',
+                "fields.slug": slug,
+                content_type: 'blogPage',
             })
             .then(function (entries) {
-                console.log("post", entries);
+                //console.log("post", entries);
                 setPost(entries.items[0] || null);
             });
     }, []);
@@ -32,10 +32,10 @@ export const Post = () => {
                 ? <div className="container">
                         <div className="row">
                             <div className="col-12">
-                                <h1 className="my-3">{post.fields.postTitle}</h1>
+                                <h1 className="my-3">{post.fields.title}</h1>
                             </div>
 
-                            <div dangerouslySetInnerHTML={{__html: documentToHtmlString(post.fields.postBody)}}></div>
+                            <div dangerouslySetInnerHTML={{__html: documentToHtmlString(post.fields.body)}}></div>
 
                             <div className="mt-1">
                                 <Link to="/" className="btn btn-primary">
