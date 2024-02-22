@@ -25,6 +25,7 @@ export const Posts = () => {
         client
             .getEntries({
                 content_type: 'blogCategory',
+                order: "sys.createdAt"
             })
             .then(function (entries) {
                 //console.log('categorias', entries.items);
@@ -37,7 +38,7 @@ export const Posts = () => {
             <div className="container">
                 <div className="row">
                     <main className="col-md-8">
-                        <h1 className="my-3">Últimos posts</h1>
+                        <h1 className="my-3">Todos posts</h1>
 
                         {posts.map(post => (
                             <div className="card mb-3" key={post.sys.id}>

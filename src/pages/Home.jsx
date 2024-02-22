@@ -14,7 +14,7 @@ export const Home = () => {
         client
             .getEntries({
                 content_type: 'blogPage',
-                limit: 2,
+                limit: 5,
                 order: "-sys.createdAt"
             })
             .then(function (entries) {
@@ -26,6 +26,7 @@ export const Home = () => {
         client
             .getEntries({
                 content_type: 'blogCategory',
+                order: "sys.createdAt"
             })
             .then(function (entries) {
                 //console.log('categorias', entries.items);
